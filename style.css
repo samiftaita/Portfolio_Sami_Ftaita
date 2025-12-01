@@ -30,6 +30,7 @@ body {
   position: fixed;
   width: 100%;
   left: 0;
+  top: 0;
   height: 15%;
   padding: 4rem 12%;
   background-color: rgba(0, 0, 0, 0.3);
@@ -76,9 +77,10 @@ span {
   color: var(--main-color);
 }
 
+/* MODIFICATION : padding-top réduit pour commencer juste après le header */
 section {
   min-height: 100vh;
-  padding: 10rem 12%;
+  padding: 6rem 12% 10rem; /* Réduit de 10rem à 6rem en haut */
 }
 
 .home {
@@ -86,6 +88,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 15rem;
+  padding-top: 2rem; /* Ajouté pour un peu d'espace */
 }
 
 .home-content {
@@ -515,7 +518,7 @@ section {
   background-color: var(--bg-color);
 }
 
-/* Responsive Design - AVEC MARGIN-TOP AJOUTÉ (sauf pour header) */
+/* Responsive Design - SANS DÉCALAGE */
 @media (max-width: 1200px) {
   .home-content h1 {
     font-size: 6rem;
@@ -529,26 +532,26 @@ section {
 }
 
 @media (max-width: 900px) {
-  /* Header inchangé - pas de margin-top */
+  /* Header inchangé */
   .header {
     padding: 2rem 5%;
     height: 12%;
   }
 
+  /* MODIFICATION : padding-top réduit pour mobile aussi */
   section {
-    padding: 12rem 5% 8rem; /* Plus de padding en haut pour l'espace */
+    padding: 5rem 5% 8rem; /* Réduit de 8rem à 5rem en haut */
   }
 
   .home {
     flex-direction: column;
-    gap: 5rem;
-    margin-top: 3rem; /* Margin-top ajouté */
+    gap: 3rem;
+    padding-top: 1rem; /* Réduit pour mobile */
   }
 
   .home-content {
     align-items: center;
     text-align: center;
-    margin-top: 2rem; /* Margin-top ajouté */
   }
 
   .home-content h1 {
@@ -597,11 +600,11 @@ section {
     width: 100%;
   }
 
-  /* Skills Responsive - avec margin-top */
+  /* Skills Responsive - sans margin-top excessif */
   .skills-container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-top: 5rem; /* Margin-top ajouté */
+    margin-top: 3rem; /* Réduit */
   }
 
   .skill-item {
@@ -626,15 +629,16 @@ section {
     padding: 0.3rem 1rem;
   }
 
-  /* Projects Responsive - avec margin-top */
+  /* Projects Responsive - sans margin-top */
   .projects-container {
-    margin-top: 3rem; /* Margin-top ajouté */
+    margin-top: 2rem; /* Réduit */
   }
 }
 
 @media (max-width: 600px) {
+  /* MODIFICATION : padding-top réduit pour très petits écrans */
   section {
-    padding: 14rem 5% 8rem; /* Encore plus d'espace en haut sur petits écrans */
+    padding: 4rem 5% 6rem; /* Réduit encore plus */
   }
 
   .btn-group {
@@ -643,12 +647,12 @@ section {
 
   .skills-container {
     grid-template-columns: 1fr;
-    margin-top: 4rem; /* Margin-top ajusté */
+    margin-top: 2rem; /* Réduit */
   }
 
   .projects-container {
     grid-template-columns: 1fr;
-    margin-top: 4rem; /* Margin-top ajouté */
+    margin-top: 2rem; /* Réduit */
   }
 
   .skill-item {
@@ -664,11 +668,11 @@ section {
     font-size: 2rem;
   }
 
-  /* Ajout de margin-top pour les titres */
+  /* Supprimé les margin-top pour les titres */
   .skills h2,
   .projects h2,
   .contact h2 {
-    margin-top: 2rem;
+    margin-top: 0;
   }
 }
 
@@ -676,20 +680,20 @@ section {
 .education {
   background-color: var(--second-bg-color);
   position: relative;
-  padding: 10rem 12%;
+  padding: 6rem 12% 10rem; /* MODIFICATION : padding-top réduit */
 }
 
 .education .section-title {
   font-size: 7rem;
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem; /* Réduit */
 }
 
 .timeline {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 1rem 0; /* Réduit */
 }
 
 .timeline::after {
@@ -709,7 +713,7 @@ section {
   position: relative;
   width: 50%;
   box-sizing: border-box;
-  margin: 2rem 0;
+  margin: 1.5rem 0; /* Réduit */
   opacity: 1;
   transform: translateY(0);
 }
@@ -762,7 +766,7 @@ section {
 }
 
 .timeline-content {
-  padding: 25px 30px;
+  padding: 20px 25px; /* Réduit */
   background-color: var(--bg-color);
   position: relative;
   border-radius: 15px;
@@ -862,7 +866,7 @@ section {
 }
 
 .education-progress {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -890,168 +894,11 @@ section {
   font-weight: 600;
 }
 
-/* Skills Section */
-.skills {
-  background-color: var(--bg-color);
-  text-align: center;
-}
-
-.skills h2 {
-  font-size: 7rem;
-  margin-bottom: 5rem;
-}
-
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  margin-top: 4rem;
-  perspective: 1000px;
-}
-
-.skill-item {
-  background: linear-gradient(145deg, #0a1f0a, #001005);
-  padding: 3rem 2.5rem;
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 2px solid rgba(0, 255, 81, 0.1);
-  min-height: 280px;
-  position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.skill-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(0, 255, 81, 0.1),
-      transparent);
-  transition: left 0.6s ease;
-}
-
-.skill-item:hover::before {
-  left: 100%;
-}
-
-.skill-item:hover {
-  border-color: var(--main-color);
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 2px var(--main-color),
-    0 0 40px rgba(0, 255, 81, 0.3);
-}
-
-.skill-icon {
-  font-size: 6.5rem;
-  background: linear-gradient(135deg, var(--main-color), #00ff88);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 2rem;
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 0 15px rgba(0, 255, 81, 0.4));
-}
-
-.skill-item:hover .skill-icon {
-  transform: scale(1.15) rotate(5deg);
-  filter: drop-shadow(0 0 20px rgba(0, 255, 81, 0.6));
-}
-
-.skill-name {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: var(--text-color);
-  text-align: center;
-}
-
-/* Modern Progress Bars */
-.skill-progress {
-  margin-top: auto;
-  width: 100%;
-  position: relative;
-}
-
-.skill-progress .progress-bar {
-  width: 100%;
-  height: 12px;
-  background: linear-gradient(135deg, #0a1a0a 0%, #1a2a1a 100%);
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  position: relative;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.skill-progress .progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg,
-      var(--main-color) 0%,
-      #00ff88 50%,
-      var(--main-color) 100%);
-  border-radius: 15px;
-  position: relative;
-  box-shadow: 0 0 12px var(--main-color), 0 0 25px rgba(0, 255, 81, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.skill-progress .progress-fill::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.5),
-      transparent);
-  animation: shimmer 2s infinite;
-  border-radius: 15px;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.skill-percentage {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  background: linear-gradient(135deg, var(--main-color), #00cc66);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  padding: 0.4rem 1.2rem;
-  border: 2px solid var(--main-color);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 255, 81, 0.3);
-}
-
-/* Education Section Responsive Design - AVEC MARGIN-TOP AJOUTÉ */
+/* Education Section Responsive Design */
 @media (max-width: 900px) {
   .education .section-title {
     font-size: 5rem;
-    margin-top: 2rem; /* Margin-top ajouté */
+    margin-top: 0; /* Supprimé */
   }
 
   .timeline::after {
@@ -1063,11 +910,11 @@ section {
     padding-left: 70px;
     padding-right: 25px;
     left: 0 !important;
-    margin-top: 3rem; /* Margin-top ajouté */
+    margin-top: 2rem; /* Réduit */
   }
 
   .timeline {
-    margin-top: 3rem; /* Margin-top ajouté */
+    margin-top: 2rem; /* Réduit */
   }
 
   .timeline-dot {
@@ -1095,47 +942,18 @@ section {
   .timeline-title {
     margin-right: 0;
   }
-
-  /* Skills Responsive - avec margin-top */
-  .skills-container {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem; /* Margin-top ajusté */
-  }
-
-  .skill-item {
-    padding: 2.5rem 2rem;
-    min-height: 260px;
-  }
-
-  .skill-icon {
-    font-size: 5.5rem;
-  }
-
-  .skill-name {
-    font-size: 2.2rem;
-  }
-
-  .skill-progress .progress-bar {
-    height: 10px;
-  }
-
-  .skill-percentage {
-    font-size: 1.4rem;
-    padding: 0.3rem 1rem;
-  }
 }
 
 @media (max-width: 600px) {
   .education .section-title {
     font-size: 4rem;
-    margin-top: 3rem; /* Margin-top ajusté */
+    margin-top: 0; /* Supprimé */
   }
 
   .timeline-item {
     padding-left: 50px;
     padding-right: 15px;
-    margin-top: 2.5rem; /* Margin-top ajusté */
+    margin-top: 1.5rem; /* Réduit */
   }
 
   .timeline-dot {
@@ -1143,30 +961,12 @@ section {
     width: 20px;
     height: 20px;
   }
-
-  .skills-container {
-    grid-template-columns: 1fr;
-    margin-top: 3rem; /* Margin-top ajusté */
-  }
-
-  .skill-item {
-    min-height: 240px;
-    padding: 2rem 1.5rem;
-  }
-
-  .skill-icon {
-    font-size: 5rem;
-  }
-
-  .skill-name {
-    font-size: 2rem;
-  }
 }
 
 /* Download CV Section */
 .download-cv {
   background-color: var(--second-bg-color);
-  padding: 10rem 12%;
+  padding: 6rem 12% 10rem; /* MODIFICATION : padding-top réduit */
   text-align: center;
 }
 
@@ -1178,7 +978,7 @@ section {
 .download-desc {
   font-size: 1.8rem;
   max-width: 800px;
-  margin: 0 auto 5rem;
+  margin: 0 auto 4rem; /* Réduit */
   line-height: 1.6;
   opacity: 0.9;
 }
@@ -1186,7 +986,7 @@ section {
 .cv-card {
   background: var(--bg-color);
   border-radius: 2rem;
-  padding: 4rem 3rem;
+  padding: 3rem 2.5rem; /* Réduit */
   max-width: 600px;
   margin: 0 auto;
   border: 2px solid rgba(0, 255, 81, 0.2);
@@ -1227,9 +1027,9 @@ section {
 }
 
 .cv-icon {
-  font-size: 8rem;
+  font-size: 7rem; /* Réduit */
   color: #ff0000;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Réduit */
   filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
 }
 
@@ -1241,15 +1041,15 @@ section {
 
 .cv-info {
   font-size: 1.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem; /* Réduit */
   opacity: 0.8;
 }
 
 .cv-features {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 4rem;
+  gap: 1.2rem; /* Réduit */
+  margin-bottom: 3rem; /* Réduit */
   text-align: left;
 }
 
@@ -1273,10 +1073,10 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.5rem 3rem;
+  padding: 1.3rem 2.5rem; /* Réduit */
   background: var(--main-color);
   color: var(--bg-color);
-  font-size: 1.8rem;
+  font-size: 1.6rem; /* Réduit */
   font-weight: 600;
   border-radius: 3rem;
   transition: all 0.3s ease;
@@ -1292,32 +1092,32 @@ section {
   border-color: var(--main-color);
 }
 
-/* Responsive Design for Download Section - AVEC MARGIN-TOP AJOUTÉ */
+/* Responsive Design for Download Section */
 @media (max-width: 900px) {
   .download-cv h2 {
     font-size: 5rem;
-    margin-top: 2rem; /* Margin-top ajouté */
+    margin-top: 0; /* Supprimé */
   }
   
   .cv-card {
-    padding: 3rem 2rem;
-    margin-top: 3rem; /* Margin-top ajouté */
+    padding: 2.5rem 2rem;
+    margin-top: 2rem; /* Réduit */
   }
 
   .download-desc {
-    margin-top: 2rem; /* Margin-top ajouté */
+    margin-top: 0; /* Supprimé */
   }
 }
 
 @media (max-width: 600px) {
   .download-cv h2 {
     font-size: 4rem;
-    margin-top: 3rem; /* Margin-top ajusté */
+    margin-top: 0; /* Supprimé */
   }
   
   .cv-card {
-    padding: 2.5rem 1.5rem;
-    margin-top: 2.5rem; /* Margin-top ajusté */
+    padding: 2rem 1.5rem;
+    margin-top: 1.5rem; /* Réduit */
   }
   
   .cv-title {
@@ -1325,12 +1125,12 @@ section {
   }
   
   .download-btn {
-    padding: 1.2rem 2.5rem;
-    font-size: 1.6rem;
+    padding: 1.1rem 2rem;
+    font-size: 1.5rem;
   }
 
-  /* Contact section margin-top */
+  /* Contact section sans margin-top excessif */
   .contact-icons {
-    margin-top: 5rem; /* Margin-top ajouté */
+    margin-top: 3rem; /* Réduit */
   }
 }
