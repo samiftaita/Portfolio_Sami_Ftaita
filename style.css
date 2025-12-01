@@ -515,7 +515,7 @@ section {
   background-color: var(--bg-color);
 }
 
-/* Responsive Design - AVEC MARGIN-TOP AJOUTÉ */
+/* Responsive Design - AVEC MARGIN-TOP AJOUTÉ (sauf pour navbar) */
 @media (max-width: 1200px) {
   .home-content h1 {
     font-size: 6rem;
@@ -532,7 +532,7 @@ section {
   .header {
     padding: 2rem 5%;
     height: 12%;
-    margin-top: 0;
+    /* Pas de margin-top pour le header */
   }
 
   section {
